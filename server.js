@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const gamesController = require('./controllers/games');
 
 const app = express();
 
@@ -15,6 +16,19 @@ db.on('disconnected', () => console.log('Disconnected to MongoDB'));
 db.on('error', () => console.log('MongoDB has an error ' + error.message));
 
 
+app.get('/api', (req, res) => {
+    res.json({
+        message: 'Welcome to free-games-collection.io'
+    });
+});
+
+app.use('/api/games', gamesController);
+
+app.get('/api/*', (req, res) => {
+    res.status(404).json({
+        message: 'That Route was not found'
+    });
+});
 
 
 app.listen(PORT, () => console.log(`Express is listening on Port: ${PORT}`));
