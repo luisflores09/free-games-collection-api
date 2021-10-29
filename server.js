@@ -17,6 +17,7 @@ db.on('disconnected', () => console.log('Disconnected to MongoDB'));
 db.on('error', () => console.log('MongoDB has an error ' + error.message));
 
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
