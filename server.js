@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const gamesController = require('./controllers/games');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
