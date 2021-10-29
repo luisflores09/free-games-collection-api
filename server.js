@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const gamesController = require('./controllers/games');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -15,6 +16,9 @@ db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('disconnected', () => console.log('Disconnected to MongoDB'));
 db.on('error', () => console.log('MongoDB has an error ' + error.message));
 
+
+app.use(morgan('dev'));
+app.use(express.json());
 
 app.get('/api', (req, res) => {
     res.json({
