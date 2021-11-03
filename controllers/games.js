@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     try {
         res.json(await Game.find({}));
     } catch (error) {
-        res.status(401).json();
+        res.status(401).json({message: 'Please login to see your collection'});
     }
 });
 
