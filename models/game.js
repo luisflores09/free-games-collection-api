@@ -7,9 +7,9 @@ const gameSchema = new Schema({
     title: String,
     thumbnail: String,
     shortDescription: String,
+    game_url: String,
     genre: String,
     platform: String,
-    publisher: String,
     developer: String,
     releaseDate: String,
 }, {timestamps:true});
